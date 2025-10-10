@@ -1,74 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    
+
+    <!-- Single Page Apps for GitHub Pages -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+
     <title>PHYSIOVIO - Ihre Physiotherapie Praxis in Musterstadt</title>
-    <meta name="description" content="Professionelle Physiotherapie in Musterstadt. Individuelle Betreuung durch erfahrene Therapeuten. Manuelle Therapie, Sportphysiotherapie, Lymphdrainage und mehr. Jetzt Termin buchen!" />
-    <meta name="keywords" content="Physiotherapie, Physiotherapeut, Manuelle Therapie, Sportphysiotherapie, Lymphdrainage, Musterstadt, Rehabilitation, Therapie" />
+    <meta
+      name="description"
+      content="Professionelle Physiotherapie in Musterstadt. Individuelle Betreuung durch erfahrene Therapeuten. Manuelle Therapie, Sportphysiotherapie, Lymphdrainage und mehr. Jetzt Termin buchen!"
+    />
+    <meta
+      name="keywords"
+      content="Physiotherapie, Physiotherapeut, Manuelle Therapie, Sportphysiotherapie, Lymphdrainage, Musterstadt, Rehabilitation, Therapie"
+    />
     <meta name="author" content="PHYSIOVIO" />
     <link rel="canonical" href="https://www.physiovio.de/" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.physiovio.de/" />
-    <meta property="og:title" content="PHYSIOVIO - Ihre Physiotherapie Praxis in Musterstadt" />
-    <meta property="og:description" content="Professionelle Physiotherapie mit individueller Betreuung. Wir begleiten Sie auf Ihrem Weg zur Genesung." />
+    <meta
+      property="og:title"
+      content="PHYSIOVIO - Ihre Physiotherapie Praxis in Musterstadt"
+    />
+    <meta
+      property="og:description"
+      content="Professionelle Physiotherapie mit individueller Betreuung. Wir begleiten Sie auf Ihrem Weg zur Genesung."
+    />
     <meta property="og:site_name" content="PHYSIOVIO" />
     <meta property="og:locale" content="de_DE" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PHYSIOVIO - Ihre Physiotherapie Praxis" />
-    <meta name="twitter:description" content="Professionelle Physiotherapie mit individueller Betreuung" />
-    
+    <meta
+      name="twitter:title"
+      content="PHYSIOVIO - Ihre Physiotherapie Praxis"
+    />
+    <meta
+      name="twitter:description"
+      content="Professionelle Physiotherapie mit individueller Betreuung"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "PHYSIOVIO",
-      "description": "Professionelle Physiotherapie Praxis",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Musterstraße 123",
-        "addressLocality": "Musterstadt",
-        "postalCode": "12345",
-        "addressCountry": "DE"
-      },
-      "telephone": "+49123456789",
-      "email": "info@physiovio.de",
-      "url": "https://www.physiovio.de",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Thursday"],
-          "opens": "08:00",
-          "closes": "18:00"
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "PHYSIOVIO",
+        "description": "Professionelle Physiotherapie Praxis",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Musterstraße 123",
+          "addressLocality": "Musterstadt",
+          "postalCode": "12345",
+          "addressCountry": "DE"
         },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Wednesday",
-          "opens": "08:00",
-          "closes": "20:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Friday",
-          "opens": "08:00",
-          "closes": "16:00"
-        }
-      ],
-      "priceRange": "$$"
-    }
+        "telephone": "+49123456789",
+        "email": "info@physiovio.de",
+        "url": "https://www.physiovio.de",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Thursday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Wednesday",
+            "opens": "08:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Friday",
+            "opens": "08:00",
+            "closes": "16:00"
+          }
+        ],
+        "priceRange": "$$"
+      }
     </script>
   </head>
 

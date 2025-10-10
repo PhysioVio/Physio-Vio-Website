@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# PhysioFlow Genesis
 
-## Project info
+A modern physiotherapy practice website built with cutting-edge technologies.
 
-**URL**: https://lovable.dev/projects/55bae98c-2423-48d3-a796-84af813ef3e3
+🌐 **Live Demo**: [https://privlab-org.github.io/physio-flow-genesis/](https://privlab-org.github.io/physio-flow-genesis/)
 
-## How can I edit this code?
+## Technologies
 
-There are several ways of editing your application.
+- **Vite 7** - Fast build tool and dev server
+- **TypeScript** - Type-safe JavaScript
+- **React 19** - Modern UI library
+- **shadcn/ui** - High-quality UI components
+- **Tailwind CSS 3** - Utility-first CSS framework
+- **React Router 7** - Client-side routing
 
-**Use Lovable**
+## Development
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/55bae98c-2423-48d3-a796-84af813ef3e3) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js 20+ (recommended: use [nvm](https://github.com/nvm-sh/nvm))
+- pnpm 10+
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+pnpm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Start development server
+pnpm dev
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Build for production
+pnpm build
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Preview production build
+pnpm preview
+
+# Lint code
+pnpm lint
+
+# Format code
+pnpm format
+
+# Type check
+pnpm typecheck
 ```
 
-**Edit a file directly in GitHub**
+### 🚀 Quick Deploy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+pnpm deploy
+```
 
-**Use GitHub Codespaces**
+This will automatically:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- ✅ Check TypeScript types
+- ✅ Lint code
+- ✅ Format code with Prettier
+- ✅ Build for production
+- ✅ Commit and push to GitHub
+- ✅ Trigger automatic deployment
 
-## What technologies are used for this project?
+See [DEPLOY_SCRIPT.md](./DEPLOY_SCRIPT.md) for details.
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is configured for automatic deployment to GitHub Pages.
 
-## How can I deploy this project?
+### Automatic Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/55bae98c-2423-48d3-a796-84af813ef3e3) and click on Share -> Publish.
+Every push to the `main` branch automatically deploys to GitHub Pages via GitHub Actions.
 
-## Can I connect a custom domain to my Lovable project?
+### Manual Deployment
 
-Yes, you can!
+1. Build the project: `pnpm build`
+2. Push to GitHub: The workflow will automatically deploy
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### GitHub Pages Setup (One-time)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Go to your repository settings
+2. Navigate to **Pages** section
+3. Under **Source**, select **GitHub Actions**
+4. The site will be available at: `https://privlab-org.github.io/physio-flow-genesis/`
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions
+└── assets/        # Static assets
+```
+
+## Features
+
+- ✅ Modern, responsive design
+- ✅ SEO optimized
+- ✅ Cookie consent management
+- ✅ Contact form with validation
+- ✅ Team presentation
+- ✅ Opening hours
+- ✅ Legal pages (Impressum, Datenschutz, AGB)
+- ✅ Fast loading times
+- ✅ Accessibility features
+
+## License
+
+All rights reserved © 2025 PHYSIOVIO

@@ -10,11 +10,27 @@ import { useState } from "react";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  firstName: z.string().trim().min(2, "Vorname muss mindestens 2 Zeichen lang sein").max(50, "Vorname zu lang"),
-  lastName: z.string().trim().min(2, "Nachname muss mindestens 2 Zeichen lang sein").max(50, "Nachname zu lang"),
-  email: z.string().trim().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").max(255, "E-Mail zu lang"),
+  firstName: z
+    .string()
+    .trim()
+    .min(2, "Vorname muss mindestens 2 Zeichen lang sein")
+    .max(50, "Vorname zu lang"),
+  lastName: z
+    .string()
+    .trim()
+    .min(2, "Nachname muss mindestens 2 Zeichen lang sein")
+    .max(50, "Nachname zu lang"),
+  email: z
+    .string()
+    .trim()
+    .email("Bitte geben Sie eine gültige E-Mail-Adresse ein")
+    .max(255, "E-Mail zu lang"),
   phone: z.string().trim().min(5, "Telefonnummer zu kurz").max(20, "Telefonnummer zu lang"),
-  message: z.string().trim().min(10, "Nachricht muss mindestens 10 Zeichen lang sein").max(1000, "Nachricht zu lang"),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Nachricht muss mindestens 10 Zeichen lang sein")
+    .max(1000, "Nachricht zu lang"),
 });
 
 const Contact = () => {
@@ -45,15 +61,15 @@ const Contact = () => {
 
     try {
       const validatedData = contactSchema.parse(formData);
-      
+
       // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       toast({
         title: "Nachricht gesendet!",
         description: "Wir melden uns schnellstmöglich bei Ihnen.",
       });
-      
+
       // Reset form
       setFormData({
         firstName: "",
@@ -85,28 +101,28 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
-      <main id="main-content" className="pt-32 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <main id="main-content" className="pb-20 pt-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+          <div className="mb-16 animate-fade-in text-center">
+            <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
               <span className="text-gradient">Kontakt</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Haben Sie Fragen oder möchten Sie einen Termin vereinbaren? Wir freuen uns
-              auf Ihre Nachricht.
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              Haben Sie Fragen oder möchten Sie einen Termin vereinbaren? Wir freuen uns auf Ihre
+              Nachricht.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact Form */}
-            <div className="p-8 rounded-2xl border border-border bg-card shadow-lg">
-              <h2 className="text-2xl font-semibold mb-6">Nachricht senden</h2>
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-lg">
+              <h2 className="mb-6 text-2xl font-semibold">Nachricht senden</h2>
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium mb-2">
+                    <label htmlFor="firstName" className="mb-2 block text-sm font-medium">
                       Vorname <span className="text-destructive">*</span>
                     </label>
                     <Input
@@ -120,13 +136,13 @@ const Contact = () => {
                       aria-describedby={errors.firstName ? "firstName-error" : undefined}
                     />
                     {errors.firstName && (
-                      <p id="firstName-error" className="text-sm text-destructive mt-1">
+                      <p id="firstName-error" className="mt-1 text-sm text-destructive">
                         {errors.firstName}
                       </p>
                     )}
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium mb-2">
+                    <label htmlFor="lastName" className="mb-2 block text-sm font-medium">
                       Nachname <span className="text-destructive">*</span>
                     </label>
                     <Input
@@ -140,7 +156,7 @@ const Contact = () => {
                       aria-describedby={errors.lastName ? "lastName-error" : undefined}
                     />
                     {errors.lastName && (
-                      <p id="lastName-error" className="text-sm text-destructive mt-1">
+                      <p id="lastName-error" className="mt-1 text-sm text-destructive">
                         {errors.lastName}
                       </p>
                     )}
@@ -148,7 +164,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
                     E-Mail <span className="text-destructive">*</span>
                   </label>
                   <Input
@@ -163,14 +179,14 @@ const Contact = () => {
                     aria-describedby={errors.email ? "email-error" : undefined}
                   />
                   {errors.email && (
-                    <p id="email-error" className="text-sm text-destructive mt-1">
+                    <p id="email-error" className="mt-1 text-sm text-destructive">
                       {errors.email}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                  <label htmlFor="phone" className="mb-2 block text-sm font-medium">
                     Telefon <span className="text-destructive">*</span>
                   </label>
                   <Input
@@ -185,14 +201,14 @@ const Contact = () => {
                     aria-describedby={errors.phone ? "phone-error" : undefined}
                   />
                   {errors.phone && (
-                    <p id="phone-error" className="text-sm text-destructive mt-1">
+                    <p id="phone-error" className="mt-1 text-sm text-destructive">
                       {errors.phone}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium">
                     Ihre Nachricht <span className="text-destructive">*</span>
                   </label>
                   <Textarea
@@ -201,12 +217,12 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Wie können wir Ihnen helfen?"
-                    className={`w-full min-h-[150px] ${errors.message ? "border-destructive" : ""}`}
+                    className={`min-h-[150px] w-full ${errors.message ? "border-destructive" : ""}`}
                     required
                     aria-describedby={errors.message ? "message-error" : undefined}
                   />
                   {errors.message && (
-                    <p id="message-error" className="text-sm text-destructive mt-1">
+                    <p id="message-error" className="mt-1 text-sm text-destructive">
                       {errors.message}
                     </p>
                   )}
@@ -214,14 +230,14 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white"
+                  className="w-full bg-secondary text-white hover:bg-secondary/90"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     <>Wird gesendet...</>
                   ) : (
                     <>
-                      <Send className="h-4 w-4 mr-2" aria-hidden="true" />
+                      <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                       Nachricht senden
                     </>
                   )}
@@ -231,50 +247,50 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div className="p-8 rounded-2xl border border-border bg-card shadow-lg">
-                <h2 className="text-2xl font-semibold mb-6">Kontaktinformationen</h2>
+              <div className="rounded-2xl border border-border bg-card p-8 shadow-lg">
+                <h2 className="mb-6 text-2xl font-semibold">Kontaktinformationen</h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
+                    <div className="gradient-primary flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
                       <MapPin className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="font-medium mb-1">Adresse</p>
-                      <address className="text-muted-foreground not-italic">
-                        Musterstraße 123<br />
-                        12345 Musterstadt<br />
+                      <p className="mb-1 font-medium">Adresse</p>
+                      <address className="not-italic text-muted-foreground">
+                        Musterstraße 123
+                        <br />
+                        12345 Musterstadt
+                        <br />
                         Deutschland
                       </address>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
+                    <div className="gradient-primary flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
                       <Phone className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="font-medium mb-1">Telefon</p>
+                      <p className="mb-1 font-medium">Telefon</p>
                       <a
                         href="tel:+49123456789"
-                        className="text-muted-foreground hover:text-secondary transition-colors"
+                        className="text-muted-foreground transition-colors hover:text-secondary"
                       >
                         0123 456 789
                       </a>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Mo-Fr: 08:00 - 18:00 Uhr
-                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">Mo-Fr: 08:00 - 18:00 Uhr</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
+                    <div className="gradient-primary flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
                       <Mail className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="font-medium mb-1">E-Mail</p>
+                      <p className="mb-1 font-medium">E-Mail</p>
                       <a
                         href="mailto:info@physiovio.de"
-                        className="text-muted-foreground hover:text-secondary transition-colors"
+                        className="text-muted-foreground transition-colors hover:text-secondary"
                       >
                         info@physiovio.de
                       </a>
@@ -284,21 +300,23 @@ const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="p-8 rounded-2xl border border-border bg-muted/30 h-64 flex items-center justify-center" role="img" aria-label="Kartenbereich - Integration folgt">
+              <div
+                className="flex h-64 items-center justify-center rounded-2xl border border-border bg-muted/30 p-8"
+                role="img"
+                aria-label="Kartenbereich - Integration folgt"
+              >
                 <div className="text-center">
-                  <MapPin className="h-12 w-12 text-secondary mx-auto mb-3" aria-hidden="true" />
-                  <p className="text-muted-foreground">
-                    Kartenintegration kommt hier hin
-                  </p>
+                  <MapPin className="mx-auto mb-3 h-12 w-12 text-secondary" aria-hidden="true" />
+                  <p className="text-muted-foreground">Kartenintegration kommt hier hin</p>
                 </div>
               </div>
 
               {/* Quick Info */}
-              <div className="p-6 rounded-2xl gradient-soft border border-border">
-                <h3 className="font-semibold mb-2">Anfahrt</h3>
+              <div className="gradient-soft rounded-2xl border border-border p-6">
+                <h3 className="mb-2 font-semibold">Anfahrt</h3>
                 <p className="text-sm text-muted-foreground">
-                  Kostenlose Parkplätze direkt vor der Praxis. Mit öffentlichen
-                  Verkehrsmitteln: Bus 123 & 456, Haltestelle "Musterplatz"
+                  Kostenlose Parkplätze direkt vor der Praxis. Mit öffentlichen Verkehrsmitteln: Bus
+                  123 & 456, Haltestelle "Musterplatz"
                 </p>
               </div>
             </div>

@@ -6,62 +6,65 @@ import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
-      
-      <main id="main-content" className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="max-w-2xl mx-auto text-center animate-fade-in">
+
+      <main
+        id="main-content"
+        className="flex flex-1 items-center justify-center px-4 pt-20 sm:px-6 lg:px-8"
+      >
+        <div className="mx-auto max-w-2xl animate-fade-in text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-32 h-32 rounded-full gradient-primary mb-6">
+            <div className="gradient-primary mb-6 inline-flex h-32 w-32 items-center justify-center rounded-full">
               <span className="text-6xl font-bold text-white">404</span>
             </div>
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+
+          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">
             Seite nicht <span className="text-gradient">gefunden</span>
           </h1>
-          
-          <p className="text-lg text-muted-foreground mb-8 max-w-md mx-auto">
+
+          <p className="mx-auto mb-8 max-w-md text-lg text-muted-foreground">
             Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              className="bg-secondary hover:bg-secondary/90 text-white"
-            >
+
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button asChild className="bg-secondary text-white hover:bg-secondary/90">
               <Link to="/">
-                <Home className="h-4 w-4 mr-2" />
+                <Home className="mr-2 h-4 w-4" />
                 Zur Startseite
               </Link>
             </Button>
-            
-            <Button
-              asChild
-              variant="outline"
-            >
+
+            <Button asChild variant="outline">
               <button type="button" onClick={() => window.history.back()}>
-                <ArrowLeft className="h-4 w-4 mr-2" />
+                <ArrowLeft className="mr-2 h-4 w-4" />
                 Zurück
               </button>
             </Button>
           </div>
-          
-          <div className="mt-12 p-6 rounded-xl bg-muted/50 border border-border">
-            <h2 className="text-lg font-semibold mb-3">Schnellzugriff</h2>
+
+          <div className="mt-12 rounded-xl border border-border bg-muted/50 p-6">
+            <h2 className="mb-3 text-lg font-semibold">Schnellzugriff</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <Link to="/team" className="text-sm text-secondary hover:underline">
                 Unser Team
               </Link>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
+              <span className="text-muted-foreground" aria-hidden="true">
+                •
+              </span>
               <Link to="/opening-hours" className="text-sm text-secondary hover:underline">
                 Öffnungszeiten
               </Link>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
+              <span className="text-muted-foreground" aria-hidden="true">
+                •
+              </span>
               <Link to="/contact" className="text-sm text-secondary hover:underline">
                 Kontakt
               </Link>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
+              <span className="text-muted-foreground" aria-hidden="true">
+                •
+              </span>
               <Link to="/booking" className="text-sm text-secondary hover:underline">
                 Termin buchen
               </Link>

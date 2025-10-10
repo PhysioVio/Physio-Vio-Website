@@ -20,7 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/physio-flow-genesis">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
