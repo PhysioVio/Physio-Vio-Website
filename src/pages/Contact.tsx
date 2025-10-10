@@ -30,7 +30,7 @@ const contactSchema = z.object({
     .string()
     .trim()
     .min(10, "Nachricht muss mindestens 10 Zeichen lang sein")
-    .max(1000, "Nachricht zu lang"),
+    .max(500, "Nachricht darf maximal 500 Zeichen lang sein"),
 });
 
 const Contact = () => {
@@ -81,7 +81,7 @@ const Contact = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Record<string, string> = {};
-        error.errors.forEach((err) => {
+        error.issues.forEach((err) => {
           if (err.path[0]) {
             fieldErrors[err.path[0] as string] = err.message;
           }
@@ -207,6 +207,16 @@ const Contact = () => {
                   )}
                 </div>
 
+                {/* Info Box für Terminbuchung */}
+                <div className="rounded-lg border-2 border-secondary/20 bg-secondary/5 p-4">
+                  <p className="text-sm font-medium text-secondary">
+                    💡 Für Terminbuchungen nutzen Sie bitte unsere{" "}
+                    <a href="/booking" className="underline hover:text-secondary/80">
+                      Termin-Buchungsfunktion
+                    </a>
+                  </p>
+                </div>
+
                 <div>
                   <label htmlFor="message" className="mb-2 block text-sm font-medium">
                     Ihre Nachricht <span className="text-destructive">*</span>
@@ -219,8 +229,12 @@ const Contact = () => {
                     placeholder="Wie können wir Ihnen helfen?"
                     className={`min-h-[150px] w-full ${errors.message ? "border-destructive" : ""}`}
                     required
-                    aria-describedby={errors.message ? "message-error" : undefined}
+                    maxLength={500}
+                    aria-describedby={errors.message ? "message-error" : "message-hint"}
                   />
+                  <p id="message-hint" className="mt-1 text-sm text-muted-foreground">
+                    {formData.message.length}/500 Zeichen
+                  </p>
                   {errors.message && (
                     <p id="message-error" className="mt-1 text-sm text-destructive">
                       {errors.message}
@@ -230,11 +244,17 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-secondary text-white hover:bg-secondary/90"
+                  className="w-full bg-secondary text-white hover:bg-secondary/90 disabled:cursor-not-allowed disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    <>Wird gesendet...</>
+                    <>
+                      <div
+                        className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
+                        aria-hidden="true"
+                      ></div>
+                      Wird gesendet...
+                    </>
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" aria-hidden="true" />
@@ -257,11 +277,11 @@ const Contact = () => {
                     <div>
                       <p className="mb-1 font-medium">Adresse</p>
                       <address className="not-italic text-muted-foreground">
-                        Musterstraße 123
+                        Metzgerei Vogel GmbH
                         <br />
-                        12345 Musterstadt
+                        Alte Dorfstraße 35 • Ursulapoppenricht
                         <br />
-                        Deutschland
+                        92256 Hahnbach
                       </address>
                     </div>
                   </div>
@@ -299,16 +319,19 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div
-                className="flex h-64 items-center justify-center rounded-2xl border border-border bg-muted/30 p-8"
-                role="img"
-                aria-label="Kartenbereich - Integration folgt"
-              >
-                <div className="text-center">
-                  <MapPin className="mx-auto mb-3 h-12 w-12 text-secondary" aria-hidden="true" />
-                  <p className="text-muted-foreground">Kartenintegration kommt hier hin</p>
-                </div>
+              {/* Google Maps Integration */}
+              <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2588.7890123456!2d11.825678!3d49.628901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479f3e1234567890%3A0x1234567890abcdef!2sAlte%20Dorfstra%C3%9Fe%2035%2C%2092256%20Hahnbach!5e0!3m2!1sde!2sde!4v1728567890123"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps Standort: Alte Dorfstraße 35, Ursulapoppenricht, 92256 Hahnbach"
+                  className="grayscale transition-all duration-300 hover:grayscale-0"
+                ></iframe>
               </div>
 
               {/* Quick Info */}

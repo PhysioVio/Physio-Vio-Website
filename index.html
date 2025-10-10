@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -17,16 +17,12 @@
               return s.replace(/~and~/g, "&");
             })
             .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
       })(window.location);
     </script>
 
-    <title>PHYSIOVIO - Ihre Physiotherapie Praxis in Musterstadt</title>
+    <title>PHYSIO VIO - Ihre Physiotherapie Praxis in Musterstadt</title>
     <meta
       name="description"
       content="Professionelle Physiotherapie in Musterstadt. Individuelle Betreuung durch erfahrene Therapeuten. Manuelle Therapie, Sportphysiotherapie, Lymphdrainage und mehr. Jetzt Termin buchen!"
@@ -35,29 +31,31 @@
       name="keywords"
       content="Physiotherapie, Physiotherapeut, Manuelle Therapie, Sportphysiotherapie, Lymphdrainage, Musterstadt, Rehabilitation, Therapie"
     />
-    <meta name="author" content="PHYSIOVIO" />
+    <meta name="author" content="PHYSIO VIO" />
     <link rel="canonical" href="https://www.physiovio.de/" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#4CAFA0" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.physiovio.de/" />
-    <meta
-      property="og:title"
-      content="PHYSIOVIO - Ihre Physiotherapie Praxis in Musterstadt"
-    />
+    <meta property="og:title" content="PHYSIO VIO - Ihre Physiotherapie Praxis in Musterstadt" />
     <meta
       property="og:description"
       content="Professionelle Physiotherapie mit individueller Betreuung. Wir begleiten Sie auf Ihrem Weg zur Genesung."
     />
-    <meta property="og:site_name" content="PHYSIOVIO" />
+    <meta property="og:site_name" content="PHYSIO VIO" />
     <meta property="og:locale" content="de_DE" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="PHYSIOVIO - Ihre Physiotherapie Praxis"
-    />
+    <meta name="twitter:title" content="PHYSIO VIO - Ihre Physiotherapie Praxis" />
     <meta
       name="twitter:description"
       content="Professionelle Physiotherapie mit individueller Betreuung"
@@ -76,7 +74,7 @@
       {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
-        "name": "PHYSIOVIO",
+        "name": "PHYSIO VIO",
         "description": "Professionelle Physiotherapie Praxis",
         "address": {
           "@type": "PostalAddress",

@@ -37,7 +37,7 @@ const Navigation = () => {
             >
               <img
                 src={logo}
-                alt="PHYSIOVIO - Physiotherapie Praxis Logo"
+                alt="PHYSIO VIO - Physiotherapie Praxis Logo"
                 className="h-12 w-auto"
               />
             </button>
@@ -48,16 +48,17 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-secondary ${
+                  className={`text-sm font-medium transition-colors hover:text-secondary focus:rounded focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
                     isActive(item.path) ? "text-secondary" : "text-foreground"
                   }`}
+                  aria-current={isActive(item.path) ? "page" : undefined}
                 >
                   {item.name}
                 </Link>
               ))}
               <Link
                 to="/booking"
-                className="rounded-lg bg-secondary px-6 py-2.5 font-medium text-white transition-colors hover:bg-secondary/90"
+                className="rounded-lg bg-secondary px-6 py-2.5 font-medium text-white transition-colors hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
               >
                 Termin buchen
               </Link>
@@ -81,36 +82,37 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div
-            id="mobile-menu"
-            className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-border bg-background md:hidden"
-          >
-            <div className="space-y-3 px-4 py-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`block rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? "bg-muted text-secondary"
-                      : "text-foreground hover:bg-muted"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+        <div
+          id="mobile-menu"
+          className={`overflow-hidden border-t border-border bg-background transition-all duration-300 ease-in-out md:hidden ${
+            isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="space-y-1.5 px-4 py-3">
+            {navItems.map((item) => (
               <Link
-                to="/booking"
-                className="block rounded-lg bg-secondary px-4 py-2.5 text-center font-medium text-white transition-colors hover:bg-secondary/90"
+                key={item.path}
+                to={item.path}
+                className={`block rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
+                  isActive(item.path)
+                    ? "bg-secondary/10 text-secondary ring-2 ring-secondary/20"
+                    : "text-foreground hover:bg-muted"
+                }`}
                 onClick={() => setIsOpen(false)}
+                aria-current={isActive(item.path) ? "page" : undefined}
               >
-                Termin buchen
+                {item.name}
               </Link>
-            </div>
+            ))}
+            <Link
+              to="/booking"
+              className="block rounded-lg bg-secondary px-3 py-2 text-center text-sm font-medium text-white transition-all duration-200 hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Termin buchen
+            </Link>
           </div>
-        )}
+        </div>
       </nav>
     </>
   );

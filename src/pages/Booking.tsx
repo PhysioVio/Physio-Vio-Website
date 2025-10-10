@@ -24,6 +24,26 @@ const Booking = () => {
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Buchen Sie bequem online Ihren Wunschtermin – schnell, einfach und zu jeder Zeit.
             </p>
+
+            {/* Neueröffnung Banner */}
+            <div className="mx-auto mt-8 max-w-2xl">
+              <div className="rounded-xl border-2 border-secondary/30 bg-gradient-to-r from-secondary/10 to-secondary/5 p-6 shadow-lg">
+                <div className="flex items-center justify-center gap-3">
+                  <span className="relative flex h-3 w-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75"></span>
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-secondary"></span>
+                  </span>
+                  <div className="text-center">
+                    <p className="text-lg font-bold text-secondary">
+                      Neueröffnung ab 1. Januar 2026
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Sichern Sie sich schon jetzt Ihren Wunschtermin!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Booking Widget Placeholder */}

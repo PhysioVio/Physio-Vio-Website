@@ -37,7 +37,7 @@ const Datenschutz = () => {
                   Verantwortlich für die Datenverarbeitung auf dieser Website ist:
                   <br />
                   <br />
-                  PHYSIOVIO Praxis für Physiotherapie
+                  PHYSIO VIO Praxis für Physiotherapie
                   <br />
                   Max Mustermann
                   <br />

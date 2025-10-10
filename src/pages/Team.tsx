@@ -57,7 +57,7 @@ const Team = () => {
             >
               <img
                 src={teamImage}
-                alt="PHYSIOVIO Team - Professionelle Physiotherapeuten in Musterstadt"
+                alt="PHYSIO VIO Team - Professionelle Physiotherapeuten in Musterstadt"
                 className="absolute left-1/2 h-full w-full -translate-x-1/2 object-cover"
                 style={{ top: "25%", transform: "translate(-50%, -25%)" }}
                 loading="lazy"
@@ -76,16 +76,16 @@ const Team = () => {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-8"
+                className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-secondary/50 hover:bg-secondary/5 hover:shadow-2xl sm:p-8"
               >
                 {/* Avatar - Centered on Mobile, Left on Desktop */}
                 <div className="mb-6 flex flex-col items-center sm:mb-0 sm:flex-row sm:items-start sm:space-x-5">
-                  <Avatar className="h-28 w-28 flex-shrink-0 ring-4 ring-background transition-all duration-300 group-hover:ring-secondary/20 sm:h-32 sm:w-32">
+                  <Avatar className="h-28 w-28 flex-shrink-0 ring-4 ring-background transition-all duration-300 group-hover:scale-110 group-hover:ring-8 group-hover:ring-secondary/30 sm:h-32 sm:w-32">
                     <AvatarImage
                       src={member.image}
                       alt={`Profilbild von ${member.name}`}
                       loading="lazy"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <AvatarFallback className="gradient-primary text-3xl font-bold text-white sm:text-4xl">
                       {member.name.charAt(0)}
@@ -94,7 +94,9 @@ const Team = () => {
 
                   {/* Content */}
                   <div className="mt-4 flex-1 text-center sm:mt-0 sm:text-left">
-                    <h3 className="mb-2 text-xl font-bold sm:text-2xl">{member.name}</h3>
+                    <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-secondary sm:text-2xl">
+                      {member.name}
+                    </h3>
                     <p className="mb-3 text-base font-semibold text-secondary">{member.role}</p>
                     <p className="mb-3 text-sm text-muted-foreground">
                       <span className="font-semibold">Spezialisierung:</span>
@@ -115,7 +117,7 @@ const Team = () => {
             <h2 className="mb-6 text-center text-3xl font-bold">Unsere Philosophie</h2>
             <div className="mx-auto max-w-3xl space-y-4 text-muted-foreground">
               <p>
-                Bei PHYSIOVIO glauben wir an eine partnerschaftliche Zusammenarbeit zwischen
+                Bei PHYSIO VIO glauben wir an eine partnerschaftliche Zusammenarbeit zwischen
                 Therapeut und Patient. Wir begleiten Sie professionell auf Ihrem Weg zur Genesung,
                 aber die aktive Mitarbeit liegt bei Ihnen.
               </p>

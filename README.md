@@ -107,4 +107,4 @@ src/
 
 ## License
 
-All rights reserved © 2025 PHYSIOVIO
+All rights reserved © 2025 PHYSIO VIO
