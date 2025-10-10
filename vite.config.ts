@@ -4,7 +4,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/physio-flow-genesis/",
   server: {
     host: "::",
     port: 8080,
@@ -15,4 +14,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/jonas-hat-nen-kleinen/",
 });

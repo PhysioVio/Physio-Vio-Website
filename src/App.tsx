@@ -22,7 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <WhatsAppButton />
-      <BrowserRouter basename="/physio-flow-genesis">
+      <BrowserRouter basename="/jonas-hat-nen-kleinen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
