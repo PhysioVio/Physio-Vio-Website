@@ -27,6 +27,18 @@ const CookieConsent = () => {
       // Delay showing banner slightly for better UX
       setTimeout(() => setShowBanner(true), 1000);
     }
+
+    // Listen for event to reopen cookie settings
+    const handleOpenCookieSettings = () => {
+      setShowBanner(true);
+      setShowSettings(true);
+    };
+
+    window.addEventListener("openCookieSettings", handleOpenCookieSettings);
+
+    return () => {
+      window.removeEventListener("openCookieSettings", handleOpenCookieSettings);
+    };
   }, []);
 
   const handleAcceptAll = () => {

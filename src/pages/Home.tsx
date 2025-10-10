@@ -75,7 +75,7 @@ const Home = () => {
             </span>
             <div>
               <p className="text-lg font-bold text-primary sm:text-xl">
-                🎉 Neueröffnung ab 1. Januar 2026
+                Neueröffnung ab 1. Januar 2026
               </p>
               <p className="text-sm text-primary/80">
                 Sichern Sie sich jetzt schon Ihren Wunschtermin!
