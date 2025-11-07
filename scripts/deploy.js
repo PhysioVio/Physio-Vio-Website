@@ -202,15 +202,20 @@ async function main() {
   }
   logSuccess("Build successful");
 
-  // Push to GitHub (both repos)
+  // Push to GitHub (main repository only)
   logStep("7/8", "Pushing to GitHub...");
-  log("Pushing to main repository (PhysioVio)...");
-  if (!exec("git push origin main")) {
-    logError("Failed to push to main repository");
+  log("Pushing to PhysioVio/Physio-Vio-Website...");
+  
+  // Get the current remote URL for origin
+  const originUrl = execSilent("git remote get-url origin");
+  
+  // Push directly to PhysioVio repository
+  if (!exec("git push https://github.com/PhysioVio/Physio-Vio-Website.git main")) {
+    logError("Failed to push to PhysioVio repository");
     log("\n❌ Deployment failed - could not push to GitHub\n", colors.red);
     process.exit(1);
   }
-  logSuccess("Pushed to both repositories (PhysioVio + backup)");
+  logSuccess("Pushed to PhysioVio/Physio-Vio-Website");
 
   // Wait for GitHub Actions
   logStep("8/8", "Triggering GitHub Actions deployment...");
