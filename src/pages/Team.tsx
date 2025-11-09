@@ -75,7 +75,7 @@ const Team = () => {
                   loading="lazy"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-primary/20 via-secondary/10 to-transparent pointer-events-none"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/20 via-secondary/10 to-transparent"
                   aria-hidden="true"
                 />
               </div>
