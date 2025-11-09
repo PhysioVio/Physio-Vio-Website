@@ -23,7 +23,7 @@ const Impressum = () => {
               <section>
                 <h2 className="mb-4 text-2xl font-semibold">Angaben gemäß § 5 TMG</h2>
                 <p className="text-muted-foreground">
-                  Physio VIO
+                  PHYSIO VIO
                   <br />
                   Inhaber: Jonas Rothmeier
                   <br />

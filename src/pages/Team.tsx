@@ -66,20 +66,18 @@ const Team = () => {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
-              {/* Praxis Image - Quadratisch */}
-              <div className="overflow-hidden rounded-2xl border border-primary/30 shadow-lg ring-2 ring-secondary/10">
-                <div className="relative aspect-square overflow-hidden">
-                  <img
-                    src={praxisImage}
-                    alt="PHYSIO VIO Praxis - Moderne Räumlichkeiten und professionelle Ausstattung"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-primary/20 via-secondary/10 to-transparent"
-                    aria-hidden="true"
-                  />
-                </div>
+              {/* Praxis Image */}
+              <div className="relative overflow-hidden rounded-2xl border border-primary/30 shadow-lg ring-2 ring-secondary/10">
+                <img
+                  src={praxisImage}
+                  alt="PHYSIO VIO Praxis - Moderne Räumlichkeiten und professionelle Ausstattung"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-primary/20 via-secondary/10 to-transparent pointer-events-none"
+                  aria-hidden="true"
+                />
               </div>
 
               {/* Praxis Info */}
@@ -90,7 +88,7 @@ const Team = () => {
                     Gemeinsam gehen. Selbstständig ankommen.
                   </h4>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Bei Physio VIO steht der Mensch im Mittelpunkt – mit all seinen individuellen
+                    Bei PHYSIO VIO steht der Mensch im Mittelpunkt – mit all seinen individuellen
                     Bedürfnissen und Zielen. Wir begleiten Sie auf Ihrem Weg zur Gesundheit, zeigen
                     Richtungen auf und geben Impulse. Schritt für Schritt lernen Sie, Verantwortung
                     für Ihren Körper zu übernehmen und nachhaltig selbstständig zu bleiben.

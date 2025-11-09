@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import leistungImage from "../assets/leistung.png";
 
 const Services = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -116,7 +117,7 @@ const Services = () => {
                 aria-hidden="true"
               />
               <img
-                src="/placeholder.svg"
+                src={leistungImage}
                 alt="Professionelle Physiotherapie - Moderne Behandlungsmethoden"
                 className="relative h-full w-full rounded-2xl object-cover"
                 style={{ minHeight: "200px", maxHeight: "280px" }}

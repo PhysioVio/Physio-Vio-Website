@@ -61,7 +61,7 @@ const Contact = () => {
                     <div>
                       <p className="mb-1 font-medium">Adresse</p>
                       <address className="not-italic text-muted-foreground">
-                        Physio VIO
+                        PHYSIO VIO
                         <br />
                         Neunaigenerstraße 1
                         <br />

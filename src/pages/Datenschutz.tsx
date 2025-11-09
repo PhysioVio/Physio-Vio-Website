@@ -37,7 +37,7 @@ const Datenschutz = () => {
                   Verantwortlich für die Datenverarbeitung auf dieser Website ist:
                   <br />
                   <br />
-                  Physio VIO
+                  PHYSIO VIO
                   <br />
                   Praxis für Physiotherapie
                   <br />
