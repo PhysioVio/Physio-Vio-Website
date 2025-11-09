@@ -104,7 +104,7 @@ const Services = () => {
                 <span className="text-gradient">Unsere Leistungen</span>
               </h1>
               <p className="mx-auto max-w-2xl text-lg text-muted-foreground lg:mx-0">
-                Physiotherapie mit modernsten Behandlungsmethoden für deine Gesundheit und Dein
+                Physiotherapie mit modernsten Behandlungsmethoden für deine Gesundheit und dein
                 Wohlbefinden.
               </p>
             </div>
@@ -177,7 +177,7 @@ const Services = () => {
           <div className="gradient-soft rounded-2xl border border-secondary/30 bg-gradient-to-br from-secondary/20 via-secondary/15 to-secondary/25 p-8 text-center shadow-lg">
             <h2 className="mb-4 text-2xl font-bold">Individuelle Beratung gewünscht?</h2>
             <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">
-              Gerne beraten wir dich persönlich, welche Behandlungsmethoden für Deine individuellen
+              Gerne beraten wir dich persönlich, welche Behandlungsmethoden für deine individuellen
               Bedürfnisse am besten geeignet sind.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
