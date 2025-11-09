@@ -42,32 +42,37 @@ const Navigation = () => {
           <div className="flex h-20 items-center justify-between">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex cursor-pointer items-center space-x-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+              className="group flex cursor-pointer items-center space-x-3 focus:outline-none"
               aria-label="Zum Seitenanfang scrollen"
             >
               <img
                 src={logo}
                 alt="PHYSIO VIO - Physiotherapie Praxis Logo"
-                className="h-16 w-auto sm:h-20"
+                className="h-14 w-auto transition-transform duration-200 group-hover:scale-110 sm:h-[4.5rem]"
               />
             </button>
 
             {/* Desktop Navigation */}
             <div className="hidden items-center space-x-8 md:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-primary focus:rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                    isActive(item.path)
-                      ? "border-b-2 border-primary text-primary"
-                      : "text-foreground"
-                  }`}
-                  aria-current={isActive(item.path) ? "page" : undefined}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) =>
+                isActive(item.path) ? (
+                  <span
+                    key={item.path}
+                    className="cursor-default border-b-2 border-primary text-sm font-bold text-primary"
+                    aria-current="page"
+                  >
+                    {item.name}
+                  </span>
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="text-sm font-bold text-foreground/70 transition-colors hover:text-primary hover:underline focus:rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
               <Link
                 to="/contact"
                 className="rounded-lg bg-gradient-to-r from-primary to-primary/90 px-6 py-2.5 font-medium text-white shadow-lg transition-all hover:scale-105 hover:from-primary/90 hover:to-secondary hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"

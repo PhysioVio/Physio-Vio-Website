@@ -87,7 +87,7 @@ const Team = () => {
                 <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-card/90 via-secondary/10 to-secondary/5 p-8 shadow-lg backdrop-blur-sm">
                   <h3 className="mb-4 text-2xl font-bold">Unsere Philosophie</h3>
                   <h4 className="mb-3 text-sm font-semibold text-primary">
-                    Gemeinsam gehen, selbstständig ankommen.
+                    Gemeinsam gehen. Selbstständig ankommen.
                   </h4>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Bei Physio VIO steht der Mensch im Mittelpunkt – mit all seinen individuellen

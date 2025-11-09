@@ -39,7 +39,7 @@ const Contact = () => {
                   <div className="text-center">
                     <p className="text-lg font-bold text-primary">Neueröffnung ab 5. Januar 2026</p>
                     <p className="text-sm text-muted-foreground">
-                      Sicher Dir jetzt schon Deinen Wunschtermin!
+                      Sicher dir jetzt schon deinen Wunschtermin!
                     </p>
                   </div>
                 </div>

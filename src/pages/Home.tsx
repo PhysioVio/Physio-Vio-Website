@@ -29,10 +29,10 @@ const Home = () => {
                 </span>
               </div>
               <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                <span className="text-gradient">Gemeinsam Gehen, </span> Selbstständig ankommen.
+                <span className="text-gradient">Gemeinsam gehen. </span> Selbstständig ankommen.
               </h1>
-              <p className="mx-auto max-w-xl text-lg text-primary lg:mx-0">
-                Wir begleiten Dich auf diesem Weg – professionell, individuell und mit Herz. Deine{" "}
+              <p className="mx-auto max-w-xl text-lg text-muted-foreground lg:mx-0">
+                Wir begleiten dich auf diesem Weg – professionell, individuell und mit Herz. Deine{" "}
                 <strong>aktive Mitarbeit</strong> macht den Unterschied.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -161,7 +161,7 @@ const Home = () => {
             Hast Du Fragen?
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
-            Kontaktiere uns gerne - wir beraten Dich persönlich und beantworten alle Deine Fragen
+            Kontaktiere uns gerne - wir beraten dich persönlich und beantworten alle deine Fragen
             zur Physiotherapie.
           </p>
           <Link

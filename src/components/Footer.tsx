@@ -9,35 +9,33 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div className="text-center">
             <img src={logo} alt="PHYSIO VIO Logo" className="mx-auto mb-3 h-16 w-auto" />
-            <p className="text-sm text-muted-foreground">
-              Gemeinsam Gehen, Selbstständig ankommen.
-            </p>
+            <p className="text-sm text-foreground/70">Gemeinsam gehen. Selbstständig ankommen.</p>
           </div>
 
           {/* Legal Links */}
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
             <Link
               to="/impressum"
-              className="text-muted-foreground transition-colors hover:text-secondary"
+              className="text-foreground/70 transition-colors hover:text-primary hover:underline"
             >
               Impressum
             </Link>
             <Link
               to="/datenschutz"
-              className="text-muted-foreground transition-colors hover:text-secondary"
+              className="text-foreground/70 transition-colors hover:text-primary hover:underline"
             >
               Datenschutz
             </Link>
             <Link
               to="/agb"
-              className="text-muted-foreground transition-colors hover:text-secondary"
+              className="text-foreground/70 transition-colors hover:text-primary hover:underline"
             >
               AGB
             </Link>
           </nav>
 
           {/* Copyright */}
-          <div className="text-center text-sm text-muted-foreground">
+          <div className="text-center text-sm text-foreground/70">
             © 2025 PHYSIO VIO. Alle Rechte vorbehalten.
           </div>
         </div>
