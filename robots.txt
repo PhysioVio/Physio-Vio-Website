@@ -4,7 +4,7 @@ Allow: /
 Disallow: /404.html
 
 # Sitemap
-Sitemap: https://www.physiovio.de/sitemap.xml
+Sitemap: https://physiovio.de/sitemap.xml
 
 # Crawl-delay (optional, nur bei Bedarf)
 # Crawl-delay: 10
