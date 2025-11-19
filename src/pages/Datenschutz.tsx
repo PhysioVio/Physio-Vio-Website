@@ -43,12 +43,12 @@ const Datenschutz = () => {
                   <br />
                   Inhaber: Jonas Rothmeier
                   <br />
-                  Neunaigenerstraße 1
+                  Neunaigener Str. 1
                   <br />
                   92533 Wernberg-Köblitz
                   <br />
                   <br />
-                  Telefon: 0151 29826319
+                  Telefon: 09604 9389600
                   <br />
                   E-Mail: info@physiovio.de
                 </p>

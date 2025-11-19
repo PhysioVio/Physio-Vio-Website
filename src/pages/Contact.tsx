@@ -77,11 +77,28 @@ const Contact = () => {
                     <div>
                       <p className="mb-1 font-medium">Telefon</p>
                       <a
+                        href="tel:+4996049389600"
+                        className="text-muted-foreground transition-colors hover:text-secondary"
+                      >
+                        09604 9389600
+                      </a>
+                      <p className="mt-1 text-xs text-muted-foreground">Festnetz</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="gradient-primary flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
+                      <Phone className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="mb-1 font-medium">Mobil</p>
+                      <a
                         href="tel:+4915129826319"
                         className="text-muted-foreground transition-colors hover:text-secondary"
                       >
                         0151 29826319
                       </a>
+                      <p className="mt-1 text-xs text-muted-foreground">Auch per WhatsApp</p>
                     </div>
                   </div>
 
@@ -97,27 +114,6 @@ const Contact = () => {
                       >
                         info@physiovio.de
                       </a>
-                    </div>
-                  </div>
-
-                  {/* WhatsApp Info - NEU */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E]">
-                      <MessageCircle className="h-6 w-6 text-white" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="mb-1 font-medium">WhatsApp</p>
-                      <a
-                        href="https://wa.me/4915129826319"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground transition-colors hover:text-secondary"
-                      >
-                        0151 29826319
-                      </a>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        Schnelle Antworten per Chat
-                      </p>
                     </div>
                   </div>
                 </div>
