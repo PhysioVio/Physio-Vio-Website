@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "4917141806097"; // +49 171 4180697 ohne Leerzeichen und +
+  const phoneNumber = "4915129826319"; // +49 151 29826319 ohne Leerzeichen und +
   const message = encodeURIComponent("Hallo! Ich möchte einen Termin vereinbaren.");
 
   return (

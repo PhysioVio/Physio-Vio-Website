@@ -48,7 +48,7 @@ const Datenschutz = () => {
                   92533 Wernberg-Köblitz
                   <br />
                   <br />
-                  Telefon: 09604 9389600
+                  Telefon: 0151 29826319
                   <br />
                   E-Mail: info@physiovio.de
                 </p>

@@ -9,7 +9,7 @@ const Contact = () => {
     { day: "Mittwoch", time: "07:30 - 18:30" },
     { day: "Donnerstag", time: "07:30 - 18:30" },
     { day: "Freitag", time: "07:30 - 14:00" },
-    { day: "Samstag", time: "Geschlossen" },
+    { day: "Samstag", time: "Nach Vereinbarung" },
     { day: "Sonntag", time: "Geschlossen" },
   ];
 
@@ -77,10 +77,10 @@ const Contact = () => {
                     <div>
                       <p className="mb-1 font-medium">Telefon</p>
                       <a
-                        href="tel:+499604 9389600"
+                        href="tel:+4915129826319"
                         className="text-muted-foreground transition-colors hover:text-secondary"
                       >
-                        09604 9389600
+                        0151 29826319
                       </a>
                     </div>
                   </div>
@@ -108,12 +108,12 @@ const Contact = () => {
                     <div>
                       <p className="mb-1 font-medium">WhatsApp</p>
                       <a
-                        href="https://wa.me/4917141806097"
+                        href="https://wa.me/4915129826319"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground transition-colors hover:text-secondary"
                       >
-                        0171 4180697
+                        0151 29826319
                       </a>
                       <p className="mt-1 text-sm text-muted-foreground">
                         Schnelle Antworten per Chat
@@ -188,7 +188,10 @@ const Contact = () => {
                 </div>
                 <div className="mt-6 rounded-xl border border-secondary/40 bg-gradient-to-r from-secondary/30 via-secondary/25 to-secondary/30 p-4 text-center ring-2 ring-secondary/10">
                   <p className="text-sm font-medium text-foreground">
-                    Termine zu unseren Öffnungszeiten – oder nach Vereinbarung.{" "}
+                    Termine zu unseren Öffnungszeiten – oder nach Vereinbarung.
+                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Hinweis: Bürozeiten können abweichen.
                   </p>
                 </div>
               </div>

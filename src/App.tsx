@@ -23,7 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <WhatsAppButton />
-      <BrowserRouter basename="/Physio-Vio-Website">
+      <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

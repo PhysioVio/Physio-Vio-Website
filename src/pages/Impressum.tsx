@@ -36,7 +36,7 @@ const Impressum = () => {
               <section>
                 <h2 className="mb-4 text-2xl font-semibold">Kontakt</h2>
                 <p className="text-muted-foreground">
-                  Telefon: 09604 9389600
+                  Telefon: 0151 29826319
                   <br />
                   E-Mail: info@physiovio.de
                 </p>
