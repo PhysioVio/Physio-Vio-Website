@@ -27,7 +27,7 @@ const Impressum = () => {
                   <br />
                   Inhaber: Jonas Rothmeier
                   <br />
-                  Neunaigenerstraße 1
+                  Neunaigener Str. 1
                   <br />
                   92533 Wernberg-Köblitz
                 </p>
@@ -67,7 +67,7 @@ const Impressum = () => {
                   <br />
                   Physiotherapeut
                   <br />
-                  Neunaigenerstraße 1
+                  Neunaigener Str. 1
                   <br />
                   92533 Wernberg-Köblitz
                 </p>

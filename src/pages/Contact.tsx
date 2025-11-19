@@ -63,7 +63,7 @@ const Contact = () => {
                       <address className="not-italic text-muted-foreground">
                         PHYSIO VIO
                         <br />
-                        Neunaigenerstraße 1
+                        Neunaigener Str. 1
                         <br />
                         92533 Wernberg-Köblitz
                       </address>
@@ -211,7 +211,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Maps Standort: Neunaigenerstraße 1, 92533 Wernberg-Köblitz"
+                  title="Google Maps Standort: Neunaigener Str. 1, 92533 Wernberg-Köblitz"
                   className="grayscale transition-all duration-300 hover:grayscale-0"
                 ></iframe>
               </div>
