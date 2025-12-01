@@ -71,18 +71,20 @@ const OpeningBanner = () => {
     ? 2.5 - easedProgress * 1.375 // 2.5rem → 1.125rem (2 Stufen kleiner in max)
     : 6 - easedProgress * 4.875; // 6rem → 1.125rem (2 Stufen kleiner in max)
 
-  // Subtitle & Button skalieren proportional mit
+  // Subtitle & Button skalieren nur im sichtbaren Bereich (bis 300px Höhe)
+  // Progress von MAX_HEIGHT → 300px (dann sind sie weg)
+  const extrasProgress = Math.min(
+    Math.max((MAX_HEIGHT - currentHeight) / (MAX_HEIGHT - HIDE_EXTRAS_HEIGHT), 0),
+    1
+  );
+  const extrasEasedProgress = easeOutCubic(extrasProgress);
+
   const subtitleSize = isMobile
-    ? 1 - easedProgress * 0.25 // 1rem → 0.75rem
-    : 1.25 - easedProgress * 0.5; // 1.25rem → 0.75rem
+    ? 1 - extrasEasedProgress * 0.25 // 1rem → 0.75rem
+    : 1.25 - extrasEasedProgress * 0.5; // 1.25rem → 0.75rem
 
-  const buttonPadding = isMobile
-    ? 1 - easedProgress * 0.25 // 1rem → 0.75rem
-    : 1 - easedProgress * 0.25; // 1rem → 0.75rem
-
-  const buttonFontSize = isMobile
-    ? 1 - easedProgress * 0.125 // 1rem → 0.875rem
-    : 1 - easedProgress * 0.125; // 1rem → 0.875rem
+  const buttonPadding = 1 - extrasEasedProgress * 0.25; // 1rem → 0.75rem
+  const buttonFontSize = 1 - extrasEasedProgress * 0.125; // 1rem → 0.875rem
 
   // Scroll zum Hero Bereich - Normal
   const scrollToHero = () => {
@@ -164,12 +166,13 @@ const OpeningBanner = () => {
           {showExtras && (
             <button
               onClick={scrollToHero}
-              className="group mt-6 inline-flex items-center justify-center rounded-xl bg-primary font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="group mt-6 inline-flex items-center justify-center rounded-xl bg-primary font-semibold text-white shadow-lg hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               style={{
                 padding: `${buttonPadding}rem ${buttonPadding * 2}rem`,
                 fontSize: `${buttonFontSize}rem`,
                 opacity: extrasOpacity,
                 willChange: "opacity, padding, font-size",
+                transition: "transform 0.2s, box-shadow 0.2s", // Nur für hover
               }}
             >
               Erfahre mehr
