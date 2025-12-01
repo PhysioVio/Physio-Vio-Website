@@ -51,7 +51,7 @@ const OpeningBanner = () => {
     currentHeight > HIDE_EXTRAS_HEIGHT ? 1 : currentHeight > 280 ? (currentHeight - 280) / 20 : 0;
 
   // Logo fade-out: smooth von 0.6 bis 0.66
-  const logoOpacity = progress < 0.6 ? 1 : progress < 0.66 ? 1 - ((progress - 0.6) / 0.06) : 0;
+  const logoOpacity = progress < 0.6 ? 1 : progress < 0.66 ? 1 - (progress - 0.6) / 0.06 : 0;
   const showLogo = logoOpacity > 0;
 
   // Content centering: smooth transition von top nach center
@@ -70,8 +70,8 @@ const OpeningBanner = () => {
   const easedProgress = easeOutCubic(progress);
 
   const titleSize = isMobile
-    ? 3 - easedProgress * 1.875 // 3rem → 1.125rem (smooth cubic easing)
-    : 7 - easedProgress * 5.875; // 7rem → 1.125rem (smooth cubic easing)
+    ? 2.5 - easedProgress * 1.375 // 2.5rem → 1.125rem (2 Stufen kleiner in max)
+    : 6 - easedProgress * 4.875; // 6rem → 1.125rem (2 Stufen kleiner in max)
 
   // Scroll zum Hero Bereich - Normal
   const scrollToHero = () => {
