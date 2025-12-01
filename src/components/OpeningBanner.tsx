@@ -23,7 +23,7 @@ const OpeningBanner = () => {
 
     // Single passive listener with RAF throttling
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       if (rafId) {
@@ -65,7 +65,7 @@ const OpeningBanner = () => {
   // easeOutCubic: Startet schnell, wird am Ende langsamer (natürlichster Scroll-Effekt)
   const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
   const easedProgress = easeOutCubic(progress);
-  
+
   const titleSize = isMobile
     ? 3 - easedProgress * 1.875 // 3rem → 1.125rem (smooth cubic easing)
     : 7 - easedProgress * 5.875; // 7rem → 1.125rem (smooth cubic easing)
