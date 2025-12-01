@@ -157,7 +157,9 @@ const OpeningBanner = () => {
                   willChange: "opacity, font-size",
                 }}
               >
-                Sichere dir jetzt schon deinen Wunschtermin!
+                <span style={{ whiteSpace: "nowrap" }}>Sichere dir jetzt schon deinen</span>
+                <br />
+                <span style={{ whiteSpace: "nowrap" }}>Wunschtermin!</span>
               </p>
             )}
           </div>
