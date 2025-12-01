@@ -71,6 +71,19 @@ const OpeningBanner = () => {
     ? 2.5 - easedProgress * 1.375 // 2.5rem → 1.125rem (2 Stufen kleiner in max)
     : 6 - easedProgress * 4.875; // 6rem → 1.125rem (2 Stufen kleiner in max)
 
+  // Subtitle & Button skalieren proportional mit
+  const subtitleSize = isMobile
+    ? 1 - easedProgress * 0.25 // 1rem → 0.75rem
+    : 1.25 - easedProgress * 0.5; // 1.25rem → 0.75rem
+
+  const buttonPadding = isMobile
+    ? 1 - easedProgress * 0.25 // 1rem → 0.75rem
+    : 1 - easedProgress * 0.25; // 1rem → 0.75rem
+
+  const buttonFontSize = isMobile
+    ? 1 - easedProgress * 0.125 // 1rem → 0.875rem
+    : 1 - easedProgress * 0.125; // 1rem → 0.875rem
+
   // Scroll zum Hero Bereich - Normal
   const scrollToHero = () => {
     const heroSection = document.getElementById("hero-section");
@@ -135,10 +148,11 @@ const OpeningBanner = () => {
             {/* Subtitle - Verschwindet bei 300px Höhe */}
             {showExtras && (
               <p
-                className="px-4 text-base font-semibold text-primary/90 sm:text-xl"
+                className="px-4 font-semibold text-primary/90"
                 style={{
+                  fontSize: `${subtitleSize}rem`,
                   opacity: extrasOpacity,
-                  willChange: "opacity",
+                  willChange: "opacity, font-size",
                 }}
               >
                 Sichere dir jetzt schon deinen Wunschtermin!
@@ -150,10 +164,12 @@ const OpeningBanner = () => {
           {showExtras && (
             <button
               onClick={scrollToHero}
-              className="group mt-6 inline-flex items-center justify-center rounded-xl bg-primary px-8 py-4 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="group mt-6 inline-flex items-center justify-center rounded-xl bg-primary font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               style={{
+                padding: `${buttonPadding}rem ${buttonPadding * 2}rem`,
+                fontSize: `${buttonFontSize}rem`,
                 opacity: extrasOpacity,
-                willChange: "opacity",
+                willChange: "opacity, padding, font-size",
               }}
             >
               Erfahre mehr
