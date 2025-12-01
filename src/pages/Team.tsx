@@ -46,7 +46,7 @@ const Team = () => {
               Über <span className="text-gradient">Uns</span>
             </h1>
             <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-              Lernen unsere Praxis und unser Team kennen – Dein Partner für Gesundheit und
+              Lerne unsere Praxis und unser Team kennen – Dein Partner für Gesundheit und
               Wohlbefinden.
             </p>
           </div>
@@ -89,9 +89,10 @@ const Team = () => {
                   </h4>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Bei PHYSIO VIO steht der Mensch im Mittelpunkt – mit all seinen individuellen
-                    Bedürfnissen und Zielen. Wir begleiten Sie auf Ihrem Weg zur Gesundheit, zeigen
-                    Richtungen auf und geben Impulse. Schritt für Schritt lernen Sie, Verantwortung
-                    für Ihren Körper zu übernehmen und nachhaltig selbstständig zu bleiben.
+                    Bedürfnissen und Zielen. Wir begleiten dich auf deinem Weg zur Gesundheit,
+                    zeigen Richtungen auf und geben Impulse. Schritt für Schritt lernst du,
+                    Verantwortung für deinen Körper zu übernehmen und nachhaltig selbstständig zu
+                    bleiben.
                   </p>
                 </div>
 

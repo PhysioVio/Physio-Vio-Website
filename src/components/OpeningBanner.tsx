@@ -10,8 +10,26 @@ const OpeningBanner = () => {
       setScrollY(window.scrollY);
     };
 
+    // Passive event listener für bessere Performance
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // RequestAnimationFrame für smooth updates (optional)
+    let ticking = false;
+    const optimizedScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", optimizedScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", optimizedScroll);
+    };
   }, []);
 
   // === Konfiguration ===
@@ -56,6 +74,8 @@ const OpeningBanner = () => {
         className="sticky top-20 z-40 overflow-hidden bg-secondary shadow-lg"
         style={{
           height: `${currentHeight}px`,
+          willChange: "height", // GPU-Beschleunigung
+          transition: "none", // Keine CSS-Transition, nur smooth state updates
         }}
       >
         {/* Radial Gradient Background */}
@@ -67,6 +87,9 @@ const OpeningBanner = () => {
         {/* Single Content - scales down on scroll - justify-center nur im Endzustand */}
         <div
           className={`absolute inset-0 z-10 flex flex-col items-center gap-4 px-4 py-2 ${isMinimized ? "justify-center" : "justify-start"}`}
+          style={{
+            willChange: "transform, opacity", // GPU-Beschleunigung
+          }}
         >
           {/* Logo - verschwindet im Endzustand */}
           {showLogo && (
@@ -74,7 +97,11 @@ const OpeningBanner = () => {
               src={logo}
               alt="PHYSIO VIO Logo"
               className="mb-1 object-contain"
-              style={{ width: `${logoWidth}px`, height: `${logoHeight}px` }}
+              style={{
+                width: `${logoWidth}px`,
+                height: `${logoHeight}px`,
+                willChange: "width, height", // GPU-Beschleunigung
+              }}
             />
           )}
 
@@ -82,7 +109,11 @@ const OpeningBanner = () => {
           <div className="space-y-3 text-center">
             <h1
               className="px-4 font-black tracking-tight text-primary"
-              style={{ fontSize: `${titleSize}rem`, lineHeight: 1.1 }}
+              style={{
+                fontSize: `${titleSize}rem`,
+                lineHeight: 1.1,
+                willChange: "font-size", // GPU-Beschleunigung
+              }}
             >
               Neueröffnung ab 5. Januar 2026
             </h1>
