@@ -50,11 +50,14 @@ const OpeningBanner = () => {
   const extrasOpacity =
     currentHeight > HIDE_EXTRAS_HEIGHT ? 1 : currentHeight > 280 ? (currentHeight - 280) / 20 : 0;
 
-  // Logo verschwindet im Endzustand (bei MIN_HEIGHT)
-  const showLogo = currentHeight > MIN_HEIGHT && progress < 0.66; // Logo weg ab Stufe 3 (66%)
+  // Logo fade-out: smooth von 0.6 bis 0.66
+  const logoOpacity = progress < 0.6 ? 1 : progress < 0.66 ? 1 - ((progress - 0.6) / 0.06) : 0;
+  const showLogo = logoOpacity > 0;
 
-  // justify-center nur im Endzustand (minimiert)
-  const isMinimized = currentHeight <= MIN_HEIGHT || progress >= 0.66; // Mittig ab Stufe 3 (wenn Logo weg ist)
+  // Content centering: smooth transition von top nach center
+  // Bei 0% = flex-start, bei 66%+ = center
+  const contentAlignment = progress < 0.6 ? 0 : progress < 0.66 ? (progress - 0.6) / 0.06 : 1;
+  const translateY = contentAlignment * 0; // Smooth transition statt justify-center toggle
 
   // Dynamische Größen - LOGO 3x GRÖSSER!
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
@@ -94,14 +97,14 @@ const OpeningBanner = () => {
           aria-hidden="true"
         />
 
-        {/* Single Content - scales down on scroll - justify-center nur im Endzustand */}
+        {/* Single Content - scales down on scroll - smooth centering */}
         <div
-          className={`absolute inset-0 z-10 flex flex-col items-center gap-4 px-4 py-2 ${isMinimized ? "justify-center" : "justify-start"}`}
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-4 py-2"
           style={{
             willChange: "transform",
           }}
         >
-          {/* Logo - verschwindet im Endzustand */}
+          {/* Logo - verschwindet smooth im Endzustand */}
           {showLogo && (
             <img
               src={logo}
@@ -110,7 +113,8 @@ const OpeningBanner = () => {
               style={{
                 width: `${logoWidth}px`,
                 height: `${logoHeight}px`,
-                willChange: "width, height",
+                opacity: logoOpacity,
+                willChange: "width, height, opacity",
               }}
             />
           )}
