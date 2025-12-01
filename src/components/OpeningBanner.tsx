@@ -54,10 +54,8 @@ const OpeningBanner = () => {
   const logoOpacity = progress < 0.6 ? 1 : progress < 0.66 ? 1 - (progress - 0.6) / 0.06 : 0;
   const showLogo = logoOpacity > 0;
 
-  // Content centering: smooth transition von top nach center
-  // Bei 0% = flex-start, bei 66%+ = center
-  const contentAlignment = progress < 0.6 ? 0 : progress < 0.66 ? (progress - 0.6) / 0.06 : 1;
-  const translateY = contentAlignment * 0; // Smooth transition statt justify-center toggle
+  // justify-center nur im Endzustand (minimiert) - für korrekte Positionierung
+  const isMinimized = currentHeight <= MIN_HEIGHT || progress >= 0.66;
 
   // Dynamische Größen - LOGO 3x GRÖSSER!
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
@@ -97,9 +95,9 @@ const OpeningBanner = () => {
           aria-hidden="true"
         />
 
-        {/* Single Content - scales down on scroll - smooth centering */}
+        {/* Single Content - scales down on scroll - justify-center nur im Endzustand */}
         <div
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-4 py-2"
+          className={`absolute inset-0 z-10 flex flex-col items-center gap-4 px-4 py-2 ${isMinimized ? "justify-center" : "justify-start"}`}
           style={{
             willChange: "transform",
           }}
