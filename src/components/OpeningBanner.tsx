@@ -44,18 +44,16 @@ const OpeningBanner = () => {
   const progress = Math.min(scrollY / scrollRange, 1);
   const currentHeight = MAX_HEIGHT - progress * scrollRange;
 
-  // Zeige Subtitle + Button nur wenn Höhe > 300px (mit kleinem Puffer für smooth fade)
+  // Alle Extras (Logo, Subtitle, Button) verschwinden synchron bei 300px
   const showExtras = currentHeight > 280;
-  // Sanfter Fade für Subtitle/Button: von 300px (opacity 1) bis 280px (opacity 0)
+  // Sanfter Fade für alle Extras: von 300px (opacity 1) bis 280px (opacity 0)
   const extrasOpacity =
     currentHeight > HIDE_EXTRAS_HEIGHT ? 1 : currentHeight > 280 ? (currentHeight - 280) / 20 : 0;
 
-  // Logo fade-out: smooth von 0.6 bis 0.66
-  const logoOpacity = progress < 0.6 ? 1 : progress < 0.66 ? 1 - (progress - 0.6) / 0.06 : 0;
-  const showLogo = logoOpacity > 0;
+  const showLogo = showExtras;
 
-  // justify-center nur im Endzustand (minimiert) - für korrekte Positionierung
-  const isMinimized = currentHeight <= MIN_HEIGHT || progress >= 0.66;
+  // justify-center wenn Extras weg sind
+  const isMinimized = !showExtras;
 
   // Dynamische Größen - LOGO 3x GRÖSSER!
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
@@ -117,7 +115,7 @@ const OpeningBanner = () => {
             willChange: "transform",
           }}
         >
-          {/* Logo - verschwindet smooth im Endzustand */}
+          {/* Logo - verschwindet synchron mit Subtitle/Button */}
           {showLogo && (
             <img
               src={logo}
@@ -126,7 +124,7 @@ const OpeningBanner = () => {
               style={{
                 width: `${logoWidth}px`,
                 height: `${logoHeight}px`,
-                opacity: logoOpacity,
+                opacity: extrasOpacity,
                 willChange: "width, height, opacity",
               }}
             />
