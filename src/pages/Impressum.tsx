@@ -54,11 +54,6 @@ const Impressum = () => {
               </section>
 
               <section>
-                <h2 className="mb-4 text-2xl font-semibold">Umsatzsteuer</h2>
-                <p className="text-muted-foreground">Steuernummer: [Wird noch ergänzt]</p>
-              </section>
-
-              <section>
                 <h2 className="mb-4 text-2xl font-semibold">
                   Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
                 </h2>
@@ -138,6 +133,21 @@ const Impressum = () => {
                   Die bereitgestellten Inhalte dienen nicht zur Selbstdiagnose oder
                   Selbstbehandlung. Für Schäden, die aus der Nutzung der auf dieser Website
                   veröffentlichten Informationen entstehen könnten, übernehmen wir keine Haftung.
+                </p>
+              </section>
+
+              <section className="border-t border-border pt-6">
+                <p className="text-center text-sm text-muted-foreground">
+                  designed & developed by{" "}
+                  <a
+                    href="https://ne-ia.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium transition-colors hover:opacity-80"
+                  >
+                    <span style={{ color: "#FF9999" }}>ne</span>
+                    <span style={{ color: "#0F2C47" }}>-ia</span>
+                  </a>
                 </p>
               </section>
             </div>
