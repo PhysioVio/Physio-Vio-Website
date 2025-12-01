@@ -6,29 +6,29 @@ const OpeningBanner = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    let rafId: number | null = null;
+
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    // Passive event listener für bessere Performance
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // RequestAnimationFrame für smooth updates (optional)
-    let ticking = false;
-    const optimizedScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
+      // Cancel previous frame if it hasn't executed yet
+      if (rafId) {
+        cancelAnimationFrame(rafId);
       }
+
+      // Schedule update for next frame
+      rafId = requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+        rafId = null;
+      });
     };
 
-    window.addEventListener("scroll", optimizedScroll, { passive: true });
+    // Single passive listener with RAF throttling
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("scroll", optimizedScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
     };
   }, []);
 
@@ -61,27 +61,14 @@ const OpeningBanner = () => {
   const logoWidth = isMobile ? 180 - progress * 148 : 600 - progress * 568; // Mobile: 180px → 32px, Desktop: 600px → 32px (3x größer!)
   const logoHeight = isMobile ? 90 - progress * 58 : 300 - progress * 268; // Mobile: 90px → 32px, Desktop: 300px → 32px (Höhe begrenzt!)
 
-  // Schriftgröße in 3 STUFEN mit smooth Übergängen innerhalb der Stufen
-  let titleSize;
-  if (progress < 0.33) {
-    // Stufe 1: Groß (0-33%) - smooth innerhalb der Stufe
-    const stageProgress = progress / 0.33; // 0 → 1
-    titleSize = isMobile
-      ? 3 - stageProgress * 0.3 // 3rem → 2.7rem
-      : 7 - stageProgress * 0.5; // 7rem → 6.5rem
-  } else if (progress < 0.66) {
-    // Stufe 2: Mittel (33-66%) - smooth innerhalb der Stufe
-    const stageProgress = (progress - 0.33) / 0.33; // 0 → 1
-    titleSize = isMobile
-      ? 2.7 - stageProgress * 1.2 // 2.7rem → 1.5rem
-      : 6.5 - stageProgress * 3.5; // 6.5rem → 3rem
-  } else {
-    // Stufe 3: Klein (66-100%) - smooth zum Ende
-    const stageProgress = (progress - 0.66) / 0.34; // 0 → 1
-    titleSize = isMobile
-      ? 1.5 - stageProgress * 0.375 // 1.5rem → 1.125rem
-      : 3 - stageProgress * 1.875; // 3rem → 1.125rem
-  }
+  // Schriftgröße - Easing-Funktion für smooth, natürliche Übergänge
+  // easeOutCubic: Startet schnell, wird am Ende langsamer (natürlichster Scroll-Effekt)
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+  const easedProgress = easeOutCubic(progress);
+  
+  const titleSize = isMobile
+    ? 3 - easedProgress * 1.875 // 3rem → 1.125rem (smooth cubic easing)
+    : 7 - easedProgress * 5.875; // 7rem → 1.125rem (smooth cubic easing)
 
   // Scroll zum Hero Bereich - Normal
   const scrollToHero = () => {
@@ -98,8 +85,7 @@ const OpeningBanner = () => {
         className="sticky top-20 z-40 overflow-hidden bg-secondary shadow-lg"
         style={{
           height: `${currentHeight}px`,
-          willChange: "height", // GPU-Beschleunigung
-          transition: "none", // Keine CSS-Transition, nur smooth state updates
+          willChange: "height",
         }}
       >
         {/* Radial Gradient Background */}
@@ -112,7 +98,7 @@ const OpeningBanner = () => {
         <div
           className={`absolute inset-0 z-10 flex flex-col items-center gap-4 px-4 py-2 ${isMinimized ? "justify-center" : "justify-start"}`}
           style={{
-            willChange: "transform, opacity", // GPU-Beschleunigung
+            willChange: "transform",
           }}
         >
           {/* Logo - verschwindet im Endzustand */}
@@ -124,7 +110,7 @@ const OpeningBanner = () => {
               style={{
                 width: `${logoWidth}px`,
                 height: `${logoHeight}px`,
-                willChange: "width, height", // GPU-Beschleunigung
+                willChange: "width, height",
               }}
             />
           )}
