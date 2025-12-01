@@ -142,9 +142,9 @@ const OpeningBanner = () => {
                 willChange: "font-size",
               }}
             >
-              Neueröffnung ab
+              <span style={{ whiteSpace: "nowrap" }}>Neueröffnung ab</span>
               <br />
-              5. Januar 2026
+              <span style={{ whiteSpace: "nowrap" }}>5. Januar 2026</span>
             </h1>
 
             {/* Subtitle - Verschwindet bei 300px Höhe */}
