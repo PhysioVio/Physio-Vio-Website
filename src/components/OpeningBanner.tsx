@@ -44,20 +44,44 @@ const OpeningBanner = () => {
   const progress = Math.min(scrollY / scrollRange, 1);
   const currentHeight = MAX_HEIGHT - progress * scrollRange;
 
-  // Zeige Subtitle + Button nur wenn Höhe > 300px
-  const showExtras = currentHeight > HIDE_EXTRAS_HEIGHT;
+  // Zeige Subtitle + Button nur wenn Höhe > 300px (mit kleinem Puffer für smooth fade)
+  const showExtras = currentHeight > 280;
+  // Sanfter Fade für Subtitle/Button: von 300px (opacity 1) bis 280px (opacity 0)
+  const extrasOpacity =
+    currentHeight > HIDE_EXTRAS_HEIGHT ? 1 : currentHeight > 280 ? (currentHeight - 280) / 20 : 0;
 
   // Logo verschwindet im Endzustand (bei MIN_HEIGHT)
-  const showLogo = currentHeight > MIN_HEIGHT;
+  const showLogo = currentHeight > MIN_HEIGHT && progress < 0.66; // Logo weg ab Stufe 3 (66%)
 
   // justify-center nur im Endzustand (minimiert)
-  const isMinimized = currentHeight <= MIN_HEIGHT;
+  const isMinimized = currentHeight <= MIN_HEIGHT || progress >= 0.66; // Mittig ab Stufe 3 (wenn Logo weg ist)
 
   // Dynamische Größen - LOGO 3x GRÖSSER!
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
   const logoWidth = isMobile ? 180 - progress * 148 : 600 - progress * 568; // Mobile: 180px → 32px, Desktop: 600px → 32px (3x größer!)
   const logoHeight = isMobile ? 90 - progress * 58 : 300 - progress * 268; // Mobile: 90px → 32px, Desktop: 300px → 32px (Höhe begrenzt!)
-  const titleSize = isMobile ? 3 - progress * 1.875 : 7 - progress * 5.875; // Mobile: 3rem → 1.125rem, Desktop: 7rem → 1.125rem
+
+  // Schriftgröße in 3 STUFEN mit smooth Übergängen innerhalb der Stufen
+  let titleSize;
+  if (progress < 0.33) {
+    // Stufe 1: Groß (0-33%) - smooth innerhalb der Stufe
+    const stageProgress = progress / 0.33; // 0 → 1
+    titleSize = isMobile
+      ? 3 - stageProgress * 0.3 // 3rem → 2.7rem
+      : 7 - stageProgress * 0.5; // 7rem → 6.5rem
+  } else if (progress < 0.66) {
+    // Stufe 2: Mittel (33-66%) - smooth innerhalb der Stufe
+    const stageProgress = (progress - 0.33) / 0.33; // 0 → 1
+    titleSize = isMobile
+      ? 2.7 - stageProgress * 1.2 // 2.7rem → 1.5rem
+      : 6.5 - stageProgress * 3.5; // 6.5rem → 3rem
+  } else {
+    // Stufe 3: Klein (66-100%) - smooth zum Ende
+    const stageProgress = (progress - 0.66) / 0.34; // 0 → 1
+    titleSize = isMobile
+      ? 1.5 - stageProgress * 0.375 // 1.5rem → 1.125rem
+      : 3 - stageProgress * 1.875; // 3rem → 1.125rem
+  }
 
   // Scroll zum Hero Bereich - Normal
   const scrollToHero = () => {
@@ -112,15 +136,23 @@ const OpeningBanner = () => {
               style={{
                 fontSize: `${titleSize}rem`,
                 lineHeight: 1.1,
-                willChange: "font-size", // GPU-Beschleunigung
+                willChange: "font-size",
               }}
             >
-              Neueröffnung ab 5. Januar 2026
+              Neueröffnung ab
+              <br />
+              5. Januar 2026
             </h1>
 
             {/* Subtitle - Verschwindet bei 300px Höhe */}
             {showExtras && (
-              <p className="px-4 text-base font-semibold text-primary/90 sm:text-xl">
+              <p
+                className="px-4 text-base font-semibold text-primary/90 sm:text-xl"
+                style={{
+                  opacity: extrasOpacity,
+                  willChange: "opacity",
+                }}
+              >
                 Sichere dir jetzt schon deinen Wunschtermin!
               </p>
             )}
@@ -131,6 +163,10 @@ const OpeningBanner = () => {
             <button
               onClick={scrollToHero}
               className="group mt-6 inline-flex items-center justify-center rounded-xl bg-primary px-8 py-4 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              style={{
+                opacity: extrasOpacity,
+                willChange: "opacity",
+              }}
             >
               Erfahre mehr
               <ChevronDown
